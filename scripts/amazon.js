@@ -55,14 +55,20 @@ products.forEach((product) => {
   `;
 });
 
-// Render products to the page
+// Ren.der products to the page
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
 // Attach event listeners to "Add to Cart" buttons
 document.querySelectorAll('.js-add-to-cart').forEach((button) => {
   button.addEventListener('click', () => {
-    const productId = button.dataset.productId; // Get product ID from the data attribute.
+    //const productId = button.dataset.productId; // Get product ID from the data attribute.
+      const {productId}=button.dataset;
+     /*<button data-product-id="123" data-product-category="electronics" class="btn"></button>
 
+    const { productId, productCategory } = button.dataset;
+    console.log(productId); // Output: "123"
+    console.log(productCategory); // Output: "electronics"
+    */
     let matchingItem;
     cart.forEach((item) => {
       if (productId === item.productId) {
@@ -84,7 +90,6 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     let productQuantity=Number(quantitySelector.value);
     console.log(productQuantity);
     console.log(typeof productQuantity);
-    
 
     // Update total cart quantity
     let cartQuantity = 0;
